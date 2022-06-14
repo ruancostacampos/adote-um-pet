@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
      req.socket.remoteAddress ||
      null;
 
-    console.log(ip)
+    console.log("IP do usuário solicitante: [" + ip + "]")
     
     try{
         const pets = await Pet.find()

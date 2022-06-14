@@ -10,7 +10,8 @@ const routes = require('./controllers/routeController')
 // ======== Allow CORS ========== 
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", process.env.FRONT_URL);
-    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     app.use(cors());
     next();
   });

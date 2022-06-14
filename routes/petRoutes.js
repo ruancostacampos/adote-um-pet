@@ -1,8 +1,9 @@
 const router = require('express').Router()
 const Pet = require('../models/Pet')
+const auth = require('../middlewares/Auth')
 
 // Create new pet 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
   
     const { name, description, image} = req.body
   
@@ -22,12 +23,6 @@ router.post('/', async (req, res) => {
 
 // List pets
 router.get('/', async (req, res) => {
-
-    var ip = req.headers['x-forwarded-for'] ||
-     req.socket.remoteAddress ||
-     null;
-
-    console.log("IP do usuário solicitante: [" + ip + "]")
     
     try{
         const pets = await Pet.find()

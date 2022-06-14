@@ -15,11 +15,6 @@ router.get('/', async (req, res) =>{
 
 })
 
-//Get especific adoption
-router.get('/:id', async (req, res) => {
-   // const adoption = Adoption.findOne({})
-})
-
 // Add adoption
 router.post('/', async (req, res) => {
     

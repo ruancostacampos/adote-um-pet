@@ -22,6 +22,8 @@ app.use(express.json())
 app.use('/',routes)
 
 
+console.log("MDB USER->" + process.env.MDB_USER, " MDB PASS-> " + process.env.MDB_PASSWORD)
+
 mongoose
 .connect(`mongodb+srv://${process.env.MDB_USER}:${process.env.MDB_PASSWORD}@cluster0.laibg.mongodb.net/?retryWrites=true&w=majority`)
 .then(() => {

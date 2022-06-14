@@ -1,5 +1,5 @@
 const auth = async (req, res, next) => {
-  var ip = req.headers['x-forwarded-for'][0] ||
+  var ip = req.headers['x-forwarded-for'] ||
   req.socket.remoteAddress ||
   null;
 

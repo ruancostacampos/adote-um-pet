@@ -8,8 +8,12 @@ const routes = require('./controllers/routeController')
 
 
 // ======== Allow CORS ========== 
-  app.options("*", cors({ origin: process.env.FRONT_URL, optionsSuccessStatus: 200 }));
-  app.use(cors({ origin: process.env.FRONT_URL, optionsSuccessStatus: 200 }));
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", process.env.FRONT_URL);
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    app.use(cors());
+    next();
+  });
 //================================
 
 //=== Allow app to deal with JSON =====

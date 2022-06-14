@@ -6,7 +6,6 @@ const auth = async (req, res, next) => {
   if(ip === process.env.ADMIN_IP){
     next()
   }else{
-    console.log(ip)
     res.status(401).json({message: "Você não tem autorização para usar esse recurso."})
   }
 }
